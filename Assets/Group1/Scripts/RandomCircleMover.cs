@@ -11,18 +11,18 @@ public class RandomCircleMover : MonoBehaviour
 
     private void Start()
     {
-        ChangeTargetPosition();
+        FindNewTargetPosition();
     }
 
     private void Update()
     {
         if (transform.position == _targetPosition)
-            ChangeTargetPosition();
+            FindNewTargetPosition();
 
         transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _speed * Time.deltaTime);
     }
 
-    private void ChangeTargetPosition()
+    private void FindNewTargetPosition()
     {
         _targetPosition = Random.insideUnitCircle * _radius;
     }

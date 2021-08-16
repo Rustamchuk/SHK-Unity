@@ -5,11 +5,17 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    public UnityEvent Died;
+    [SerializeField] private UnityEvent _died;
+
+    public event UnityAction Died
+    {
+        add => _died.AddListener(value);
+        remove => _died.RemoveListener(value);
+    }
 
     public void Die()
     {
-        Died.Invoke();
+        _died.Invoke();
         Destroy(gameObject);
     }
 }

@@ -5,29 +5,30 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
+    private float _movementX;
+    private float _movementY;
+    private bool _isMultiplied = false;
+
+    public bool IsMultiplied => _isMultiplied;
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-            transform.Translate(0, _speed * Time.deltaTime, 0);
+        _movementX = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
+        _movementY = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.S))
-            transform.Translate(0, -_speed * Time.deltaTime, 0);
-
-        if (Input.GetKey(KeyCode.A))
-            transform.Translate(-_speed * Time.deltaTime, 0, 0);
-
-        if (Input.GetKey(KeyCode.D))
-            transform.Translate(_speed * Time.deltaTime, 0, 0);
+        transform.Translate(_movementX, _movementY, 0);
     }
 
     public void MultiplySpeed(float value)
     {
         _speed *= value;
+        _isMultiplied = true;
     }
 
     public void ShareSpeed(float value)
     {
         _speed /= value;
+        _isMultiplied = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

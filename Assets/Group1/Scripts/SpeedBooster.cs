@@ -4,38 +4,24 @@ using UnityEngine;
 
 public class SpeedBooster : MonoBehaviour
 {
+    [SerializeField] private PlayerMover _player;
     [SerializeField] private float _multiplyValue;
     [SerializeField] private float _duration;
 
-    private PlayerMover _player;
-    private bool _isBoosted = false;
-    private float _passTime;
-
-    private void Update()
+    private IEnumerator Boost()
     {
-        if (_isBoosted)
-        {
-            _passTime += Time.deltaTime;
+        _player.MultiplySpeed(_multiplyValue);
 
-            if (_duration <= _passTime)
-            {
-                _player.ShareSpeed(_multiplyValue);
-                
-                _passTime = 0;
+        yield return new WaitForSeconds(_duration);
 
-                _isBoosted = false;
-            }
-        }
+        _player.ShareSpeed(_multiplyValue);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PlayerMover player))
+        if (collision.TryGetComponent(out PlayerMover player) && !_player.IsMultiplied)
         {
-            _player = player;
-
-            _player.MultiplySpeed(_multiplyValue);
-            _isBoosted = true;
+            StartCoroutine(Boost());
         }
     }
 }

@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f17a929b2a8443a68567a22295cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Died:
+  _died:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 534669906}
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f17a929b2a8443a68567a22295cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Died:
+  _died:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 534669906}
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f17a929b2a8443a68567a22295cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Died:
+  _died:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 534669906}
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218f17a929b2a8443a68567a22295cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Died:
+  _died:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 534669906}
@@ -1395,6 +1395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 707709746529934882, guid: 1dc505c47b2720445b807922917cebd1,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1761935012}
+    - target: {fileID: 707709746529934882, guid: 1dc505c47b2720445b807922917cebd1,
+        type: 3}
       propertyPath: _multiplyValue
       value: 2
       objectReference: {fileID: 0}
@@ -1504,6 +1509,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 707709746529934882, guid: 1dc505c47b2720445b807922917cebd1,
+        type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1761935012}
     - target: {fileID: 707709746529934882, guid: 1dc505c47b2720445b807922917cebd1,
         type: 3}
       propertyPath: _multiplyValue
